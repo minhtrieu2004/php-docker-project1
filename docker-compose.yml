@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   # 1. Dịch vụ Website (PHP + Apache)
@@ -9,10 +9,10 @@ services:
     depends_on:
       - db
     environment:
-      - DB_HOST=db       # Tên host là tên service ở dưới (quan trọng!)
+      - DB_HOST=db # Tên host là tên service ở dưới (quan trọng!)
       - DB_USER=root
       - DB_PASS=rootpassword
-      - DB_NAME=demo_db
+      - DB_NAME=project1
     volumes:
       - .:/var/www/html # Mount code hiện tại vào container để sửa code là thấy ngay
 
