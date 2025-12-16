@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  # 1. Dịch vụ Website (PHP + Apache)
+  web:
+    build: .
+    ports:
+      - "8080:80" # Truy cập ở máy ngoài bằng cổng 8080 (localhost:8080)
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db       # Tên host là tên service ở dưới (quan trọng!)
+      - DB_USER=root
+      - DB_PASS=rootpassword
+      - DB_NAME=demo_db
+    volumes:
+      - .:/var/www/html # Mount code hiện tại vào container để sửa code là thấy ngay
+
+  # 2. Dịch vụ Database (MySQL)
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: project1
+    volumes:
+      - db_data:/var/lib/mysql
+      # Dòng dưới này cực hay: Tự động import database.sql khi chạy lần đầu
+      - ./project1.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  db_data:
