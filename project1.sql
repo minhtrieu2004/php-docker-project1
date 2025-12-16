@@ -40,8 +40,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `created_at`) VALUES
-(1, 'Nguyen Van A', '2025-12-16 13:48:29'),
-(2, 'Tran Thi B', '2025-12-16 13:48:29');
+(1, 'Hồ Minh Triệu', '2025-12-16 13:48:29'),
+(2, 'Nguyen Van A', '2025-12-16 13:48:29'),
+(3, 'Tran Thi B', '2025-12-16 13:48:29');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
